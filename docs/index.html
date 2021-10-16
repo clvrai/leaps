@@ -1,0 +1,498 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<!-- ======================================================================= -->
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=AM_CHTML"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+<style type="text/css">
+  body {
+    font-family: "Titillium Web","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight:300;
+    font-size:18px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+
+  h1 {
+    font-weight:300;
+  }
+
+  div {
+    max-width: 95%;
+    margin:auto;
+    padding: 10px;
+  }
+
+  .table-like {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+
+  .disclaimerbox {
+    background-color: #eee;
+    border: 1px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+    padding: 20px;
+  }
+
+  video.header-vid {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  img {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  iframe {
+    max-width: 100%;
+  }
+
+  img.header-img {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  img.rounded {
+    border: 1px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    color: #666;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 10px;
+    display: block;
+    word-wrap: break-word;
+}
+
+  a:link,a:visited
+  {
+    color: #1367a7;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #208799;
+  }
+
+  td.dl-link {
+    height: 160px;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .rotate {
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  width: 1.5em;
+}
+.rotate div {
+     -moz-transform: rotate(-90.0deg);  /* FF3.5+ */
+       -o-transform: rotate(-90.0deg);  /* Opera 10.5 */
+  -webkit-transform: rotate(-90.0deg);  /* Saf3.1+, Chrome */
+             filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
+         -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+         margin-left: -10em;
+         margin-right: -10em;
+}
+
+  .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+            15px 15px 0 0px #fff, /* The fourth layer */
+            15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+            20px 20px 0 0px #fff, /* The fifth layer */
+            20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+            25px 25px 0 0px #fff, /* The fifth layer */
+            25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+    margin-left: 10px;
+    margin-right: 45px;
+  }
+
+
+  .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+  }
+
+  .vert-cent {
+    position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+
+  hr
+  {
+    border: 0;
+    height: 1px;
+    max-width: 1100px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  }
+
+  #authors td {
+    padding-bottom:5px;
+    padding-top:30px;
+  }
+</style>
+<!-- ======================================================================= -->
+
+<!-- Start : Google Analytics Code -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64069893-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-64069893-4');
+</script> -->
+<!-- End : Google Analytics Code -->
+
+<script type="text/javascript" src="resources/hidebib.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+<head>
+<div max-width=100%>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="icon" type="image/png" href="resources/clvr_icon.png">
+  <title>Learning to Synthesize Programs as Interpretable and Generalizable Policies</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://jesbu1.github.io/" />
+  <meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <meta property="og:site_name" content="Skill-based Learning with Demonstrations" />
+  <meta property="og:type" content="video.other" />
+  <meta property="og:title" content="Learning to Synthesize Programs as Interpretable and Generalizable Policies" />
+  <meta property="og:description" content="Dweep Trivedi*, Jesse Zhang*, Shao-Hua Sun*, Joseph Lim. Learning to Synthesize Programs as Generalizable and Interpretable Policies. 2021." />
+  <meta property="og:url" content="https://clvrai.github.io/leaps" />
+  <meta property="og:image" content="https://clvrai.github.io/skild/resources/leaps.png" />  <!-- UPDATE -->
+  <meta property="og:video" content="https://www.youtube.com/v/XXX" />   <!-- UPDATE -->
+
+  <meta property="article:publisher" content="https://jesbu1.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Learning to Synthesize Programs as Interpretable and Generalizable Policies" />
+  <meta name="twitter:description" content="Dweep Trivedi*, Jesse Zhang*, Shao-Hua Sun*, Joseph Lim. Learning to Synthesize Programs as Generalizable and Interpretable Policies. 2021." />
+  <meta name="twitter:url" content="https://clvrai.github.io/leaps" />
+  <meta name="twitter:image" content="https://clvrai.github.io/leaps/resources/leaps.png" />   <!-- UPDATE -->
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="768" />
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <meta name="twitter:card" content="player" />
+  <meta name="twitter:image" content="https://clvrai.github.io/leaps/resources/leaps.png" />   <!-- UPDATE -->
+  <meta name="twitter:player" content="https://www.youtube.com/embed/XXX?rel=0&showinfo=0" />   <!-- UPDATE -->
+  <meta name="twitter:player:width" content="640" />
+  <meta name="twitter:player:height" content="360" />
+</head>
+
+<body>
+
+      <br>
+      <center><span style="font-size:44px;font-weight:bold;">Learning to Synthesize Programs<br/> as Interpretable and Generalizable Policies</span></center><br/>
+      <div class="table-like" style="justify-content:space-evenly;max-width:800px;margin:auto;">
+          <div><center><span style="font-size:30px"><a href="https://www.linkedin.com/in/dweep-trivedi/" target="_blank">Dweep Trivedi*</a></span></center>
+          <!-- <center><span style="font-size:18px">USC</span></center> -->
+          </div>
+
+          <div><center><span style="font-size:30px"><a href="https://jesbu1.github.io/" target="_blank">Jesse Zhang*</a></span></center>
+          <!-- <center><span style="font-size:18px">UPenn</span></center>-->          
+          </div>
+
+          <div><center><span style="font-size:30px"><a href="http://shaohua0116.github.io/" target="_blank">Shao-Hua Sun*</a></span></center>
+          <!-- <center><span style="font-size:18px">UPenn</span></center>-->          
+          </div>
+
+          <div><center><span style="font-size:30px"><a href="https://www.clvrai.com/" target="_blank">Joseph Lim</a></span></center>
+          <!-- <center><span style="font-size:18px">UC Berkeley</span></center> -->
+          </div>
+      </div>
+      <table align=center width=30% style="padding-top:0px;padding-bottom:0px">
+          <tr>
+            <td align=center><center><span style="font-size:25px"><a href="https://www.clvrai.com/" target="_blank">CLVR Lab, University of Southern California</a></span></center></td>
+          <tr/>
+      </table>
+      <!-- <center><span style="font-size:20px;">Conference on Robot Learning (CoRL), 2020</span></center> -->
+
+      <div class="table-like" style="justify-content:space-evenly;max-width:500px;margin:auto;padding:5px">
+        <div><center><span style="font-size:28px"><a href="https://arxiv.org/abs/2108.13643">[Paper]</a></span></center></div>  <!-- UPDATE -->
+        <div><center><span style="font-size:28px"><a href="https://www.github.com/clvrai/leaps">[Code Coming Soon]</a></span></center> </div>   <!-- UPDATE -->
+        <!-- <div><center><span style="font-size:28px"><a href='https://youtu.be/w32twGTWvDU'>[Talk (5 min)]</a></span></center> </div> -->
+      </div>
+
+      <!-- ### VIDEO ### -->
+      <!-- <center>
+      <iframe width="768" height="432" max-width="100%" src="https://www.youtube.com/embed/axXx-x86IeY?autoplay=1&loop=1&playlist=axXx-x86IeY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center> -->
+      <!-- <iframe width="768" height="432" max-width="100%" src="resources/video.m4v" frameborder="0" allowfullscreen></iframe></center> -->
+      <!-- <br> -->
+
+      <br/>
+          <center><img src = "resources/leaps.png" width="600px"></img><br></center>
+      <br/>
+
+      <div style="width:800px; margin:0 auto;padding:5px" align="justify">
+        Recently, deep reinforcement learning (DRL) methods have achieved impressive performance on tasks in a variety of domains. However, neural network policies produced with DRL methods are not human-interpretable and often have difficulty generalizing to novel scenarios. To address these issues, prior works explore learning programmatic policies that are more interpretable and structured for generalization. Yet, these works either employ limited policy representations (e.g. decision trees, state machines, or predefined program templates) or require stronger supervision (e.g. input/output state pairs or expert demonstrations). We present a framework that instead learns to synthesize a program, which details the procedure to solve a task in a flexible and expressive manner, solely from reward signals. To alleviate the difficulty of learning to compose programs to induce the desired agent behavior from scratch, we propose to first learn a program embedding space that continuously parameterizes diverse behaviors in an unsupervised manner and then search over the learned program embedding space to yield a program that maximizes the return for a given task. Experimental results demonstrate that the proposed framework not only learns to reliably synthesize task-solving programs but also outperforms DRL and program synthesis baselines while producing interpretable and more generalizable policies. We also justify the necessity of the proposed two-stage learning scheme as well as analyze various methods for learning the program embedding.
+      </div>
+      <br><hr>
+
+
+      <!-- ################### OVERVIEW #################### -->
+        <center><h1>Overview</h1></center>
+        <div style="width:800px; margin:0 auto;padding:5px" align="justify">
+        We aim to develop a framework which can synthesize expressive programs structured in 
+        a given domain specific language which can be executed to solve a given task of interest,
+        purely from reward. 
+        </div><br>
+        <center><img src = "resources/leaps_model.jpeg" width="1000px"></img><br></center>
+        <br/>
+        <div style="width:800px; margin:0 auto;padding:5px" align="justify">
+            Due to the difficulty of directly synthesizing discrete program tokens only from task reward,
+            we break down the problem into two stages:
+                <br>
+            (1) <b>Learning program embedding stage:</b> we propose to learn
+            a program embedding space by
+ training a program encoder `q_\phi` that
+            encodes a program as a latent program `z`, a program decoder pθ that
+            decodes
+ the latent program `z` back to a reconstructed program `\hat{p}`,
+            and a policy `\pi` that conditions on the latent program
+ `z` and acts as
+            a neural program executor to produce the execution trace of the
+            latent program `z`. The model
+ optimizes a combination of a program
+            reconstruction loss `\mathcal{L}^\text{P}`, a program behavior reconstruction loss
+`\mathcal{L}^\text{R}`, and a
+ latent behavior reconstruction loss `\mathcal{L}^\text{L}`. `a_1, a_2, ..., a_t` denotes actions produced by either the policy `\pi` or program
+            execution. 
+            <br> 
+            (2) <b>Latent program search stage:</b> we use the Cross Entropy
+            Method to iteratively search for the
+ best candidate latent programs
+            that can be decoded and executed to maximize the reward to solve
+            given tasks.
+        </div><br>
+
+    <!-- ################### ENVIRONMENTS #################### -->
+
+    <table align=center width=1000px>
+        <center><h1>Karel Environments</h1></center>
+
+        <tr>
+        <td style="width:30%">
+          <center><h2>StairClimber</h2></center>
+          <a href="resources/karel_gifs/"><video src = "resources/karel_gifs/maze.mp4" width="100%" autoplay muted loop></video></a>
+        </td>
+        <td style="width:3%"></td>
+        <td style="width:30%">
+          <center><h2>FourCorner</h2></center>
+          <a href="resources/karel_gifs/"><video src = "resources/karel_gifs/maze.mp4" width="100%" autoplay muted loop></video></a>
+        </td>
+        <td style="width:3%"></td>
+        <td style="width:30%">
+          <center><h2>TopOff</h2></center>
+          <a href="resources/karel_gifs/"><video src = "resources/karel_gifs/maze.mp4" width="100%" autoplay muted loop></video></a>
+        </td>
+        </tr>
+        </table>
+        <table align=center width=1000px>
+        <tr>
+        <td style="width:30%">
+          <center><h2>Maze</h2></center>
+          <a href="resources/karel_gifs/"><video src = "resources/karel_gifs/maze.mp4" width="100%" autoplay muted loop></video></a>
+        </td>
+        <td style="width:3%"></td>
+        <td style="width:30%">
+          <center><h2>CleanHouse</h2></center>
+          <a href="resources/karel_gifs/"><video src = "resources/karel_gifs/maze.mp4" width="100%" autoplay muted loop></video></a>
+        </td>
+        <td style="width:3%"></td>
+        <td style="width:30%">
+          <center><h2>Harvester</h2></center>
+          <a href="resources/karel_gifs/"><video src = "resources/karel_gifs/maze.mp4" width="100%" autoplay muted loop></video></a>
+        </td>
+        </tr>
+        </table><br>
+
+      <div style="width:800px; margin:0 auto; text-align=right" align="justify">
+        We evaluate our approach on three long-horizon tasks: maze navigation, kitchen manipulation and office cleanup. In each environment, we collect a large, task-agnostic dataset and a small set of task-specific demonstrations.
+      </div>
+      <hr>
+
+
+      <!-- ################### QUALITATIVE ANALYSIS #################### -->
+
+      <div style="width:800px; margin:0 auto; text-align=center">
+        <center><h1>How well does LEAPS solve the Karel tasks?</h1></center>
+      </div>
+      <!-- <br/> -->
+          <center><img src = "resources/skild_quali_results.png" width="1000px"></img><br></center>
+          <div style="width:800px; margin:0 auto;" align="justify">
+        We analyze the qualitative behavior of our approach in the maze environment: the discriminator D(s) can accurately estimate the support of the demonstrations (green). Thus, the SkiLD policy minimizes divergence to the demonstration-based skill posterior <i>within</i> the demonstration support (third panel, blue) and follows the task-agnostic skill prior otherwise (fourth panel). In summary, the agent learns to follow the demonstrations whenever it's within their support and falls back to prior-based exploration outside the support.
+      </div>
+      <br/><hr>
+
+
+      <!-- ################### POLICY ROLLOUTS #################### -->
+
+      <div style="width:800px; margin:0 auto; text-align=center">
+        <center><h1>How much better does LEAPS generalize?</h1></center>
+      </div>
+      <table align=center width=1000px>
+        <tr>
+          <td style="width:1%">
+            <center><div style="font-size:25px; transform:rotate(270deg)">
+            Kitchen Manipulation
+            </div></center>
+          </td>
+          <!-- <td style="width:1%"></td> -->
+          <td style="width:30%">
+            <center><h2>SkiLD</h2></center>
+            <a href="resources/policy_videos/kitchen_skild.mp4"><video src = "resources/policy_videos/kitchen_skild.mp4" width="100%" autoplay muted loop></video></a>
+          </td>
+          <td style="width:1%"></td>
+          <td style="width:30%">
+            <center><h2>SPiRL</h2></center>
+            <a href="resources/policy_videos/kitchen_spirl.mp4"><video src = "resources/policy_videos/kitchen_spirl.mp4" width="100%" autoplay muted loop></video></a>
+          </td>
+          <td style="width:1%"></td>
+          <td style="width:30%">
+            <center><h2>SkillBC + SAC</h2></center>
+            <a href="resources/policy_videos/kitchen_skillBCSAC.mp4"><video src = "resources/policy_videos/kitchen_skillBCSAC.mp4" width="100%" autoplay muted loop></video></a>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="width:1%">
+            <center><div style="font-size:25px; transform:rotate(270deg)">
+            Office Cleanup
+            </div></center>
+          </td>
+          <!-- /*<td style="width:1%"></td>*/ -->
+          <td style="width:30%">
+            <a href="resources/policy_videos/office_skild.mp4"><video src = "resources/policy_videos/office_skild.mp4" width="100%" autoplay muted loop></video></a>
+          </td>
+          <td style="width:1%"></td>
+          <td style="width:30%">
+            <a href="resources/policy_videos/office_spirl.mp4"><video src = "resources/policy_videos/office_spirl.mp4" width="100%" autoplay muted loop></video></a>
+          </td>
+          <td style="width:1%"></td>
+          <td style="width:30%">
+            <a href="resources/policy_videos/office_skillBCSAC.mp4"><video src = "resources/policy_videos/office_skillBCSAC.mp4" width="100%" autoplay muted loop></video></a>
+          </td>
+        </tr>
+      </table>
+      <br><div style="width:800px; margin:0 auto;" align="justify">
+        Rollouts from the trained policies on the robotic manipulation tasks. In the kitchen environment the agent needs to perform four subtasks: open microwave, flip light switch, open slide cabinet, open hinge cabinet. In the office cleanup task it needs to put the correct objects in the correct receptacles. In both environments, our approach SkiLD is the only method that cann solve the full task. SPiRL lacks guidance through the demonstrations and thus solves wrong subtasks and fails at the target task. Skill-based BC with SAC finetuning is brittle and unable to solve more than one subtask. For more qualitative result videos, please check our <a href="https://sites.google.com/view/skill-demo-rl" target="_blank">supplementary website</a>.
+      </div></br><hr>
+
+
+      <!-- ################### QUANTITATIVE RESULTS #################### -->
+      <div style="width:800px; margin:0 auto; text-align=center">
+        <center><h1>Are LEAPS policies interpretable?</h1></center>
+      </div>
+      <!-- <br/> -->
+          <center><img src = "resources/skild_quant_results.png" width="1000px"></img><br></center>
+      <hr>
+      <div style="width:800px; margin:0 auto; text-align=center">
+        <center><h1>What does LEAPS' program embedding space look like?</h1></center>
+      </div>
+      <!-- <br/> -->
+          <center><img src = "resources/leaps_embedding_vis.png" width="1000px"></img><br></center>
+      <br><div style="width:800px; margin:0 auto;" align="justify">
+        We perform dimensionality reduction with PCA to embed encoded programs from the training dataset, samples drawn from a normal distribution, programs from the testing dataset, and programs reconstructed by models to a 2D space. Compared to the normal distribution, the shape of the encoded program is more "twisted", suggesting the effectiveness of the proposed latent behavior reconstruction objective.
+      </div></br><hr>
+
+      <hr>
+
+      <!-- ################### IMITATION RESULTS #################### -->
+      <div style="width:800px; margin:0 auto; text-align=center">
+        <center><h1>How does CEM search?</h1></center>
+      </div>
+      <!-- <br/> -->
+          <center><img src = "resources/skild_imitation_results.png" width="800px"></img><br></center>
+      <br><div style="width:800px; margin:0 auto;" align="justify">
+        We apply SkiLD in the pure imitation setting, without access to environment rewards and instead use a GAIL-style reward based on our learned discriminator, which is trained to estimate demonstration support. We show that our approach is able to leverage prior experience through skills for effective imitation of long-horizon tasks. By finetuning the learned discriminator we can further improve performance on the kitchen manipulation task which requires more complex control.
+      </div></br><hr>
+
+      <!-- ################### CODE #################### -->
+      <center id="sourceCode"><h1>Source Code</h1></center>
+      <div style="width:800px; margin:0 auto; text-align=right">
+      We are planning to release our PyTorch implementation on Github soon, stay tuned! <!-- have released our implementation in PyTorch on the github page. Try our code! -->
+      </div>
+      <div class="table-like">
+        <span style="font-size:28px"><a >[GitHub]</a></span>   <!-- UPDATE -->
+      </div>
+      <br><hr>
+
+      <!-- ################### CITATION #################### -->
+      <table align=center width=850px>
+        <center><h1>Citation</h1></center>
+        <tr>
+        <td width=100%>
+        <pre><code style="display:block; white-space:pre-wrap">
+    @inproceedings{trivedi2021leaps,
+        author={Dweep Trivedi and Jesse Zhang and Shao-Hua Sun and Joseph J. Lim},
+        booktitle = {Advances in Neural Information Processing Systems},
+        title={Learning to Synthesize Programs as Interpretable and Generalizable Policies}, 
+        url = {https://arxiv.org/pdf/2108.13643.pdf},
+        volume = {34},
+        year = {2021}
+    }
+        </code></pre>
+          </td>
+          </tr>
+      </table>
+    <br><hr>
+
+
+      <!-- <div style="width:800px; margin:0 auto; text-align=center">
+        <br>
+        <center>Code and full paper to be released soon.</center>
+      </div> -->
+      </table>
+
+<script xml:space="preserve" language="JavaScript">
+hideallbibs();
+</script>
+</div>
+</body>
+</html>
