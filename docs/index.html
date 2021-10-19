@@ -256,6 +256,7 @@
       <div class="table-like" style="justify-content:space-evenly;max-width:500px;margin:auto;padding:5px">
         <div><center><span style="font-size:28px"><a href="https://arxiv.org/abs/2108.13643">[Paper]</a></span></center></div>  <!-- UPDATE -->
         <div><center><span style="font-size:28px"><a href="https://www.github.com/clvrai/leaps">[Code Coming Soon]</a></span></center> </div>   <!-- UPDATE -->
+        <div><center><span style="font-size:28px"><a href="resources/LEAPS_slides.pdf">[Slides]</a></span></center> </div>   <!-- UPDATE -->
         <!-- <div><center><span style="font-size:28px"><a href='https://youtu.be/w32twGTWvDU'>[Talk (5 min)]</a></span></center> </div> -->
       </div>
 
@@ -278,9 +279,11 @@
       <!-- ################### OVERVIEW #################### -->
         <center><h1>Overview</h1></center>
         <div style="width:800px; margin:0 auto;padding:5px" align="justify">
-        We aim to develop a framework which can synthesize expressive programs structured in 
-        a given domain specific language which can be executed to solve a given task of interest,
-        purely from reward. 
+        To address the interpretability and generalization issues of deep reinforcement learning (DRL) methods,
+        we propose synthesizing programs from reward. 
+
+        These programs are human-readable, flexible, and expressive. However, programs are difficult to synthesize purely from environment reward.
+
         </div><br>
         <center><img src = "resources/leaps_model.jpeg" width="1000px"></img><br></center>
         <br/>
@@ -317,43 +320,46 @@
         <center><h1>Karel Environments</h1></center>
 
         <tr>
-        <td style="width:30%">
+        <td style="width:20%">
           <center><h2>StairClimber</h2></center>
-          <a href="resources/karel_gifs/"><video src = "resources/karel_gifs/maze.mp4" width="100%" autoplay muted loop></video></a>
+          <img src = "resources/karel_gifs/gt_stairClimber_10_10.gif" width="100%" autoplay muted loop></img>
         </td>
         <td style="width:3%"></td>
-        <td style="width:30%">
+        <td style="width:20%">
           <center><h2>FourCorner</h2></center>
-          <a href="resources/karel_gifs/"><video src = "resources/karel_gifs/maze.mp4" width="100%" autoplay muted loop></video></a>
+          <img src = "resources/karel_gifs/gt_fourCorners_10_10.gif" width="100%" autoplay muted loop></img>
         </td>
         <td style="width:3%"></td>
-        <td style="width:30%">
+        <td style="width:20%">
           <center><h2>TopOff</h2></center>
-          <a href="resources/karel_gifs/"><video src = "resources/karel_gifs/maze.mp4" width="100%" autoplay muted loop></video></a>
+          <img src = "resources/karel_gifs/gt_topOff_10_10.gif" width="100%" autoplay muted loop></img>
+        </td>
+        <td style="width:3%"></td>
+        <td style="width:20%">
+          <center><h2>Maze</h2></center>
+          <img src = "resources/karel_gifs/gt_randomMaze_8_8.gif" width="100%" autoplay muted loop></img>
         </td>
         </tr>
         </table>
+        <br>
         <table align=center width=1000px>
         <tr>
-        <td style="width:30%">
-          <center><h2>Maze</h2></center>
-          <a href="resources/karel_gifs/"><video src = "resources/karel_gifs/maze.mp4" width="100%" autoplay muted loop></video></a>
-        </td>
-        <td style="width:3%"></td>
-        <td style="width:30%">
+        <td style="width:15%"></td>
+        <td style="width:31.5%">
           <center><h2>CleanHouse</h2></center>
-          <a href="resources/karel_gifs/"><video src = "resources/karel_gifs/maze.mp4" width="100%" autoplay muted loop></video></a>
+          <img src = "resources/karel_gifs/gt_cleanHouse_14_22.gif" width="100%" autoplay muted loop></img>
         </td>
-        <td style="width:3%"></td>
-        <td style="width:30%">
+        <td style="width:10%"></td>
+        <td style="width:20%">
           <center><h2>Harvester</h2></center>
-          <a href="resources/karel_gifs/"><video src = "resources/karel_gifs/maze.mp4" width="100%" autoplay muted loop></video></a>
+          <img src = "resources/karel_gifs/gt_harvester_10_10.gif" width="100%" autoplay muted loop></img>
         </td>
+        <td style="width:23%"></td>
         </tr>
         </table><br>
 
       <div style="width:800px; margin:0 auto; text-align=right" align="justify">
-        We evaluate our approach on three long-horizon tasks: maze navigation, kitchen manipulation and office cleanup. In each environment, we collect a large, task-agnostic dataset and a small set of task-specific demonstrations.
+        We evaluate our approach on a set of sparse-reward Karel environments---commonly used in the program synthesis domain---specially designed to evaluate the performance differences between our program policies and DRL baselines.
       </div>
       <hr>
 
