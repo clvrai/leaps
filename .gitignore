@@ -1,0 +1,13 @@
+*.pyc
+.*.sw[pon]
+*.json
+*.p
+.ipynb_checkpoints
+.ipynb_checkpoints/*
+**/__pycache__/
+log/
+.ropeproject/
+train_dir
+trained_models/
+wandb/
+*DS_store
