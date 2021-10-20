@@ -26,6 +26,10 @@
     padding: 10px;
   }
 
+  .paddingBetweenCols td {
+  padding: 5 15px;
+}
+
   .table-like {
     display: flex;
     flex-wrap: wrap;
@@ -370,9 +374,75 @@
         <center><h1>How well does LEAPS solve the Karel tasks?</h1></center>
       </div>
       <!-- <br/> -->
-          <center><img src = "resources/skild_quali_results.png" width="1000px"></img><br></center>
+        <table align=center width=900px style="table-layout: fixed" class="paddingBetweenCols">
+          <tr>
+            <th><center><h2></h2></center></th>
+            <th><center><h2>DRL</h2></center></th>
+            <th><center><h2>LEAPS</h2></center></th>
+            <th><center><h2></h2></center></th>
+          </tr>
+          <tr>
+          <td style="width:1%">
+            <center><div style="font-size:25px; transform:rotate(270deg)">
+            StairClimber
+            </div></center>
+          </td>
+            <td><img src = "resources/drl_karel_gifs/stairClimber.gif" width="99.8%" autoplay muted loop></img></td>
+            <td><img src = "resources/leaps_karel_gifs/pred_one_for_all_stairClimber_12_12.gif" width="100%" autoplay muted loop></img></td>
+            <td>Both methods learn to successfully climb the stairs. </td>
+          </tr>
+          <tr>
+          <td style="width:1%">
+            <center><div style="font-size:25px; transform:rotate(270deg)">
+            FourCorner
+            </div></center>
+          </td>
+            <td><img src = "resources/drl_karel_gifs/fourCorner.gif" width="99.8%" autoplay muted loop></img></td>
+            <td><img src = "resources/leaps_karel_gifs/pred_one_for_all_fourCorners_12_12.gif" width="100%" autoplay muted loop></img></td>
+            <td>DRL only manages to place one marker while LEAPS places one in each corner.</td>
+          </tr>
+          <tr>
+          <td style="width:1%">
+            <center><div style="font-size:25px; transform:rotate(270deg)">
+            TopOff
+            </div></center>
+          </td>
+            <td><img src = "resources/drl_karel_gifs/topOff.gif" width="99.8%" autoplay muted loop></img></td>
+            <td><img src = "resources/leaps_karel_gifs/pred_one_for_all_topOff_12_12.gif" width="100%" autoplay muted loop></img></td>
+            <td>DRL only tops off one marker while LEAPS tops off every marker successfully.</td>
+          </tr>
+          <tr>
+          <td style="width:1%">
+            <center><div style="font-size:25px; transform:rotate(270deg)">
+            Maze 
+            </div></center>
+          </td>
+            <td><img src = "resources/drl_karel_gifs/randomMaze.gif" width="99.8%" autoplay muted loop></img></td>
+            <td><img src = "resources/leaps_karel_gifs/pred_one_for_all_randomMaze_8_8.gif" width="100%" autoplay muted loop></img></td>
+            <td>Both methods learn to successfully navigate the maze. </td>
+          </tr>
+          <tr>
+          <td style="width:1%">
+            <center><div style="font-size:25px; transform:rotate(270deg)">
+            CleanHouse 
+            </div></center>
+          </td>
+            <td><img src = "resources/drl_karel_gifs/cleanHouse.gif" width="99.8%" autoplay muted loop></img></td>
+            <td><img src = "resources/leaps_karel_gifs/pred_one_for_all_cleanHouse_14_22.gif" width="100%" autoplay muted loop></img></td>
+            <td>LEAPS is able to clean one room, while DRL doesn't learn meaningful behaviors.</td>
+          </tr>
+          <td style="width:1%">
+            <center><div style="font-size:25px; transform:rotate(270deg)">
+            Harvester
+            </div></center>
+          </td>
+            <td><img src = "resources/drl_karel_gifs/harvester.gif" width="99.8%" autoplay muted loop></img></td>
+            <td><img src = "resources/leaps_karel_gifs/pred_one_for_all_harvester_8_8.gif" width="100%" autoplay muted loop></img></td>
+            <td>Both partially harvest the markers.</td>
+          </tr>
+        </table><br>
           <div style="width:800px; margin:0 auto;" align="justify">
-        We analyze the qualitative behavior of our approach in the maze environment: the discriminator D(s) can accurately estimate the support of the demonstrations (green). Thus, the SkiLD policy minimizes divergence to the demonstration-based skill posterior <i>within</i> the demonstration support (third panel, blue) and follows the task-agnostic skill prior otherwise (fourth panel). In summary, the agent learns to follow the demonstrations whenever it's within their support and falls back to prior-based exploration outside the support.
+          Qualitatively, LEAPS successfully completes most tasks at a higher rate.
       </div>
       <br/><hr>
 
