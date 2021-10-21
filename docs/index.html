@@ -271,11 +271,10 @@
       <!-- <br> -->
 
       <br/>
-          <center><img src = "resources/leaps_teaser.jpeg" width="600px"></img><br></center>
-      <br/>
+          <center><img src = "resources/leaps_teaser.jpeg" width="600px"></img></center>
 
       <div style="width:800px; margin:0 auto;padding:5px" align="justify">
-        Recently, deep reinforcement learning (DRL) methods have achieved impressive performance on tasks in a variety of domains. However, neural network policies produced with DRL methods are not human-interpretable and often have difficulty generalizing to novel scenarios. To address these issues, prior works explore learning programmatic policies that are more interpretable and structured for generalization. Yet, these works either employ limited policy representations (e.g. decision trees, state machines, or predefined program templates) or require stronger supervision (e.g. input/output state pairs or expert demonstrations). We present a framework that instead learns to synthesize a program, which details the procedure to solve a task in a flexible and expressive manner, solely from reward signals. To alleviate the difficulty of learning to compose programs to induce the desired agent behavior from scratch, we propose to first learn a program embedding space that continuously parameterizes diverse behaviors in an unsupervised manner and then search over the learned program embedding space to yield a program that maximizes the return for a given task. Experimental results demonstrate that the proposed framework not only learns to reliably synthesize task-solving programs but also outperforms DRL and program synthesis baselines while producing interpretable and more generalizable policies. We also justify the necessity of the proposed two-stage learning scheme as well as analyze various methods for learning the program embedding.
+        Recently, deep reinforcement learning (DRL) methods have achieved impressive performance on tasks in a variety of domains. However, neural network policies produced with DRL methods are not human-interpretable and often have difficulty generalizing to novel scenarios. To address these issues, prior works explore learning structured, programmatic policies. Yet, these works employ limited policy representations or require stronger supervision. Our framework instead learns to synthesize programs solely from reward signals. 
       </div>
       <br><hr>
 
@@ -287,15 +286,14 @@
         we propose synthesizing programs from reward. 
 
         These programs are human-readable, flexible, and expressive. However, programs are difficult to synthesize purely from environment reward.
+        <center><br><img src = "resources/DNN_to_LEAPS.png" width="1000px"></img><br></center>
 
-        </div><br>
-        <center><img src = "resources/leaps_model.jpeg" width="1000px"></img><br></center>
-        <br/>
+        </div>
         <div style="width:800px; margin:0 auto;padding:5px" align="justify">
             Due to the difficulty of directly synthesizing discrete program tokens only from task reward,
             we break down the problem into two stages:
-                <br>
-            (1) <b>Learning program embedding stage:</b> we propose to learn
+            <ol>
+            <li><b>Learning program embedding stage:</b> we propose to learn
             a program embedding space by
  training a program encoder `q_\phi` that
             encodes a program as a latent program `z`, a program decoder pθ that
@@ -309,15 +307,16 @@
             reconstruction loss `\mathcal{L}^\text{P}`, a program behavior reconstruction loss
 `\mathcal{L}^\text{R}`, and a
  latent behavior reconstruction loss `\mathcal{L}^\text{L}`. `a_1, a_2, ..., a_t` denotes actions produced by either the policy `\pi` or program
-            execution. 
-            <br> 
-            (2) <b>Latent program search stage:</b> we use the Cross Entropy
+            execution. </li>
+            <li> <b>Latent program search stage:</b> we use the Cross Entropy
             Method to iteratively search for the
  best candidate latent programs
             that can be decoded and executed to maximize the reward to solve
-            given tasks.
+            given tasks.</li>
+        </ol>
         </div><br>
-
+        <center><img src = "resources/leaps_model.jpeg" width="1000px"></img><br></center>
+        <hr>
     <!-- ################### ENVIRONMENTS #################### -->
 
     <table align=center width=1000px>
@@ -442,7 +441,9 @@
           </tr>
         </table><br>
           <div style="width:800px; margin:0 auto;" align="justify">
-          Qualitatively, LEAPS successfully completes most tasks at a higher rate.
+          LEAPS performs well quantitatively, too. It performs the best on 5 out of 6 tasks when compared to a wide array of 
+          DRL and program synthesis baselines:
+        <center><br><img src="resources/LEAPS_perf_table.png" width=800px><br></center>
       </div>
       <br/><hr>
 
@@ -451,93 +452,61 @@
 
       <div style="width:800px; margin:0 auto; text-align=center">
         <center><h1>How much better does LEAPS generalize?</h1></center>
+        <center><br><img src="resources/LEAPS_generalization_fig.png" width=800px><br></center>
+          <div style="width:800px; margin:0 auto;" align="justify">
+            
+          </div>
+        
       </div>
-      <table align=center width=1000px>
-        <tr>
-          <td style="width:1%">
-            <center><div style="font-size:25px; transform:rotate(270deg)">
-            Kitchen Manipulation
-            </div></center>
-          </td>
-          <!-- <td style="width:1%"></td> -->
-          <td style="width:30%">
-            <center><h2>SkiLD</h2></center>
-            <a href="resources/policy_videos/kitchen_skild.mp4"><video src = "resources/policy_videos/kitchen_skild.mp4" width="100%" autoplay muted loop></video></a>
-          </td>
-          <td style="width:1%"></td>
-          <td style="width:30%">
-            <center><h2>SPiRL</h2></center>
-            <a href="resources/policy_videos/kitchen_spirl.mp4"><video src = "resources/policy_videos/kitchen_spirl.mp4" width="100%" autoplay muted loop></video></a>
-          </td>
-          <td style="width:1%"></td>
-          <td style="width:30%">
-            <center><h2>SkillBC + SAC</h2></center>
-            <a href="resources/policy_videos/kitchen_skillBCSAC.mp4"><video src = "resources/policy_videos/kitchen_skillBCSAC.mp4" width="100%" autoplay muted loop></video></a>
-          </td>
-        </tr>
-
-        <tr>
-          <td style="width:1%">
-            <center><div style="font-size:25px; transform:rotate(270deg)">
-            Office Cleanup
-            </div></center>
-          </td>
-          <!-- /*<td style="width:1%"></td>*/ -->
-          <td style="width:30%">
-            <a href="resources/policy_videos/office_skild.mp4"><video src = "resources/policy_videos/office_skild.mp4" width="100%" autoplay muted loop></video></a>
-          </td>
-          <td style="width:1%"></td>
-          <td style="width:30%">
-            <a href="resources/policy_videos/office_spirl.mp4"><video src = "resources/policy_videos/office_spirl.mp4" width="100%" autoplay muted loop></video></a>
-          </td>
-          <td style="width:1%"></td>
-          <td style="width:30%">
-            <a href="resources/policy_videos/office_skillBCSAC.mp4"><video src = "resources/policy_videos/office_skillBCSAC.mp4" width="100%" autoplay muted loop></video></a>
-          </td>
-        </tr>
-      </table>
       <br><div style="width:800px; margin:0 auto;" align="justify">
-        Rollouts from the trained policies on the robotic manipulation tasks. In the kitchen environment the agent needs to perform four subtasks: open microwave, flip light switch, open slide cabinet, open hinge cabinet. In the office cleanup task it needs to put the correct objects in the correct receptacles. In both environments, our approach SkiLD is the only method that cann solve the full task. SPiRL lacks guidance through the demonstrations and thus solves wrong subtasks and fails at the target task. Skill-based BC with SAC finetuning is brittle and unable to solve more than one subtask. For more qualitative result videos, please check our <a href="https://sites.google.com/view/skill-demo-rl" target="_blank">supplementary website</a>.
+        We test zero-shot generalization by training policies on the original, small grids and transferring them
+        to much larger 100x100 instances. 
+        <center><br><img src="resources/LEAPS_generalization_table.png" width=800px><br></center>
       </div></br><hr>
 
 
-      <!-- ################### QUANTITATIVE RESULTS #################### -->
+      <!-- ################### INTERPRETABILITY #################### -->
       <div style="width:800px; margin:0 auto; text-align=center">
         <center><h1>Are LEAPS policies interpretable?</h1></center>
       </div>
-      <!-- <br/> -->
-          <center><img src = "resources/skild_quant_results.png" width="1000px"></img><br></center>
+      <table align=center width=800px>
+        <tr>
+        <td style="width:50%">
+          <video src="resources/human_interpretability.mp4" width="100%" autoplay muted loop></video>
+        </td>
+        <td style="width:50%">
+          <img src="resources/perf_improvement.png" width="100%"></img>
+        </td>
+        </tr>
+      </table>
+      <br><div style="width:800px; margin:0 auto;" align="justify">
+      Synthesized programs are not only readable to human users but also interactable, allowing non-expert users with a basic understanding of programming to diagnose and make edits to improve their performance. To test this hypothesis, we asked people with programming experience who are unfamiliar with our DSL or Karel tasks to edit suboptimal LEAPS programs to improve performance as much as possible.
+      We see a significant increase in performance in all three tasks, with an average 97.1% increase in performance with just 3 edits and an average 125% increase in performance with 5.
+      </div>
+      <br>
+
+
+
+      <!-- ################### EMBEDDING SPACE #################### -->
       <hr>
       <div style="width:800px; margin:0 auto; text-align=center">
         <center><h1>What does LEAPS' program embedding space look like?</h1></center>
       </div>
       <!-- <br/> -->
-          <center><img src = "resources/leaps_embedding_vis.png" width="1000px"></img><br></center>
+          <center><img src = "resources/leaps_embedding_vis.png" width="400px"></img><br></center>
       <br><div style="width:800px; margin:0 auto;" align="justify">
         We perform dimensionality reduction with PCA to embed encoded programs from the training dataset, samples drawn from a normal distribution, programs from the testing dataset, and programs reconstructed by models to a 2D space. Compared to the normal distribution, the shape of the encoded program is more "twisted", suggesting the effectiveness of the proposed latent behavior reconstruction objective.
       </div></br><hr>
 
-      <hr>
-
-      <!-- ################### IMITATION RESULTS #################### -->
+      <!-- ################### CEM #################### -->
       <div style="width:800px; margin:0 auto; text-align=center">
         <center><h1>How does CEM search?</h1></center>
       </div>
       <!-- <br/> -->
-          <center><img src = "resources/skild_imitation_results.png" width="800px"></img><br></center>
+          <center><img src = "resources/cem.gif" width="400px"></img><br></center>
       <br><div style="width:800px; margin:0 auto;" align="justify">
-        We apply SkiLD in the pure imitation setting, without access to environment rewards and instead use a GAIL-style reward based on our learned discriminator, which is trained to estimate demonstration support. We show that our approach is able to leverage prior experience through skills for effective imitation of long-horizon tasks. By finetuning the learned discriminator we can further improve performance on the kitchen manipulation task which requires more complex control.
+        Here, we demonstrate the effectiveness of CEM as our program search algorithm by visualizing its search trajectory over our latent program embedding space for the StairClimber task. As you can see, over time, CEM search converges towards the ground-truth program, marked with a red star. 
       </div></br><hr>
-
-      <!-- ################### CODE #################### -->
-      <center id="sourceCode"><h1>Source Code</h1></center>
-      <div style="width:800px; margin:0 auto; text-align=right">
-      We are planning to release our PyTorch implementation on Github soon, stay tuned! <!-- have released our implementation in PyTorch on the github page. Try our code! -->
-      </div>
-      <div class="table-like">
-        <span style="font-size:28px"><a >[GitHub]</a></span>   <!-- UPDATE -->
-      </div>
-      <br><hr>
 
       <!-- ################### CITATION #################### -->
       <table align=center width=850px>

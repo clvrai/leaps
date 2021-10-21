@@ -10,4 +10,4 @@ log/
 train_dir
 trained_models/
 wandb/
-*DS_Store
+*.DS_Store
