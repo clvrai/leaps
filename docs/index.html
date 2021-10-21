@@ -487,16 +487,15 @@
 
 
 
-      <!-- ################### EMBEDDING SPACE #################### -->
+      <!-- ################### EMBEDDING SPACE #################### 
       <hr>
       <div style="width:800px; margin:0 auto; text-align=center">
         <center><h1>What does LEAPS' program embedding space look like?</h1></center>
       </div>
-      <!-- <br/> -->
           <center><img src = "resources/leaps_embedding_vis.png" width="400px"></img><br></center>
       <br><div style="width:800px; margin:0 auto;" align="justify">
         We perform dimensionality reduction with PCA to embed encoded programs from the training dataset, samples drawn from a normal distribution, programs from the testing dataset, and programs reconstructed by models to a 2D space. Compared to the normal distribution, the shape of the encoded program is more "twisted", suggesting the effectiveness of the proposed latent behavior reconstruction objective.
-      </div></br><hr>
+      </div></br><hr> -->
 
       <!-- ################### CEM #################### -->
       <div style="width:800px; margin:0 auto; text-align=center">
@@ -505,7 +504,7 @@
       <!-- <br/> -->
           <center><img src = "resources/cem.gif" width="400px"></img><br></center>
       <br><div style="width:800px; margin:0 auto;" align="justify">
-        Here, we demonstrate the effectiveness of CEM as our program search algorithm by visualizing its search trajectory over our latent program embedding space for the StairClimber task. As you can see, over time, CEM search converges towards the ground-truth program, marked with a red star. 
+        Here, we demonstrate the effectiveness of CEM as our program search algorithm by visualizing its search trajectory over our latent program embedding space for the StairClimber task. As you can see, over time, CEM search converges towards the ground-truth program, marked with a red star. Note that it appears to pass through the ground truth program halfway through the search; this is due to visual distortions introduced by projecting a 256-dim space to a 2D one. 
       </div></br><hr>
 
       <!-- ################### CITATION #################### -->
