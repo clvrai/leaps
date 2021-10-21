@@ -2,7 +2,7 @@
 
 This repository is the official implementation of [LEAPS](https://arxiv.org/abs/2108.13643), published as a conference paper in NeurIPS 2021. 
 
-<img src="github-assets/leaps_teaser.jpg" alt="LEAPS Teaser" width="400"/>
+<img src="github-assets/leaps_teaser.jpeg" alt="LEAPS Teaser" width="400"/>
 
 
 ## Method Overview:
