@@ -1,14 +1,34 @@
 # Learning to Synthesize Programs as Interpretable and Generalizable Policies
 
-This repository is the official implementation of [LEAPS](https://arxiv.org/abs/2108.13643). 
+This repository is the official implementation of [LEAPS](https://arxiv.org/abs/2108.13643), published as a conference paper in NeurIPS 2021. 
+
+![LEAPS Teaser](github-assets/leaps_teaser.jpeg)
+
+## Method Overview:
+To address the interpretability and generalization issues of deep reinforcement learning (DRL) methods, we propose synthesizing programs from reward. These programs are human-readable, flexible, and expressive. However, programs are difficult to synthesize purely from environment reward.
+
+Due to the difficulty of directly synthesizing discrete program tokens only from task reward, we break down the problem into two stages:
+
+1. **Learning program embedding stage**: we first learn a smooth, latent program embedding space based on a dataset of randomly generated programs.
+2. **Latent program search stage**: we use the Cross Entropy Method to search for the best candidate latent programs that can be decoded and eecuted to maximize the reward to solve given tasks.
+
+For more details, please see our [website](https://clvrai.com/leaps) or [paper](https://arxiv.org/abs/2108.13643).
+
+To cite our paper, please use the following Bibtex entry:
+```    
+@inproceedings{trivedi2021leaps,
+        author={Dweep Trivedi and Jesse Zhang and Shao-Hua Sun and Joseph J. Lim},
+        booktitle = {Advances in Neural Information Processing Systems},
+        title={Learning to Synthesize Programs as Interpretable and Generalizable Policies}, 
+        url = {https://arxiv.org/pdf/2108.13643.pdf},
+        volume = {34},
+        year = {2021}
+    }
+```
 
 
-Code coming soon!
+# Code coming soon!
 
-
-
-
->📋  Optional: include a graphic explaining your approach/main result, bibtex entry, link to demos, blog posts and tutorials
 
 ## Requirements
 
