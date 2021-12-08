@@ -318,7 +318,7 @@
         <center><img src = "resources/leaps_model.jpeg" width="1000px"></img><br></center>
         <hr>
     <!-- ################### ENVIRONMENTS #################### -->
-
+      <div style="overflow-x: auto;">
     <table align=center width=1000px>
         <center><h1>Karel Environments</h1></center>
 
@@ -359,7 +359,9 @@
         </td>
         <td style="width:23%"></td>
         </tr>
-        </table><br>
+        </table>
+      </div>
+        <br>
 
       <div style="width:800px; margin:0 auto; text-align=right" align="justify">
         We evaluate our approach on a set of sparse-reward Karel environments---commonly used in the program synthesis domain---specially designed to evaluate the performance differences between our program policies and DRL baselines.
@@ -373,6 +375,7 @@
         <center><h1>How well does LEAPS solve the Karel tasks?</h1></center>
       </div>
       <!-- <br/> -->
+    <div style="overflow-x:auto;">
         <table align=center width=900px style="table-layout: fixed" class="paddingBetweenCols">
           <tr>
             <th><center><h2></h2></center></th>
@@ -439,7 +442,9 @@
             <td><img src = "resources/leaps_karel_gifs/pred_one_for_all_harvester_8_8.gif" width="100%" autoplay muted loop></img></td>
             <td>Both partially harvest the markers.</td>
           </tr>
-        </table><br>
+        </table>
+        </div>
+        <br>
           <div style="width:800px; margin:0 auto;" align="justify">
           LEAPS performs well quantitatively, too. It performs the best on 5 out of 6 tasks when compared to a wide array of 
           DRL and program synthesis baselines:
@@ -469,6 +474,7 @@
       <div style="width:800px; margin:0 auto; text-align=center">
         <center><h1>Are LEAPS policies interpretable?</h1></center>
       </div>
+      <div style="overflow-x:auto;">
       <table align=center width=800px>
         <tr>
         <td style="width:50%">
@@ -479,6 +485,7 @@
         </td>
         </tr>
       </table>
+    </div>
       <br><div style="width:800px; margin:0 auto;" align="justify">
       Synthesized programs are not only readable to human users but also interactable, allowing non-expert users with a basic understanding of programming to diagnose and make edits to improve their performance. To test this hypothesis, we asked people with programming experience who are unfamiliar with our DSL or Karel tasks to edit suboptimal LEAPS programs to improve performance as much as possible.
       We see a significant increase in performance in all three tasks, with an average 97.1% increase in performance with just 3 edits and an average 125% increase in performance with 5.
