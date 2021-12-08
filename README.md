@@ -2,7 +2,10 @@
 
 This repository is the official implementation of [LEAPS](https://arxiv.org/abs/2108.13643), published as a conference paper in NeurIPS 2021. 
 
-![LEAPS Teaser](github-assets/leaps_teaser.jpeg)
+<p align="center">
+<img src="github-assets/leaps_teaser.jpeg" alt="LEAPS Teaser" width="600"/>
+</p>
+
 
 ## Method Overview:
 To address the interpretability and generalization issues of deep reinforcement learning (DRL) methods, we propose synthesizing programs from reward. These programs are human-readable, flexible, and expressive. However, programs are difficult to synthesize purely from environment reward.
