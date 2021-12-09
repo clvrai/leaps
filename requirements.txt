@@ -1,0 +1,14 @@
+numpy
+tensorboardX==1.9
+gym==0.15.4
+requests
+wandb
+ply
+imageio
+tqdm
+h5py
+pandas
+colorlog
+progressbar
+torch==1.4.0
+torchvision==0.5.0
