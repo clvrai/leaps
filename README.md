@@ -85,6 +85,7 @@ python3 pretrain/trainer.py --configfile pretrain/leaps_[leaps_maze/leaps_stairc
         - --CEM.init_type: initial distribution to sample from ['normal':N(0,1), 'tiny_normal':N(0,0.1), 'ones':N(1, 0)]
 
 - Results are saved to `pretrain/output_dir`. Use tensorboard to visualize the results. Note: returns are set to a maximum of 1.1, while it is a max of 1.0 in the paper. This reward difference is due to a syntax bonus, simply subtract 0.1 from the printed/tensorboard results to get the corresponding return out of 1.0.
+    - By default, if the best program achieves max return (1.1) for 10 CEM iterations in a row, the search process is considered to be converged and it is killed early. The best program and its corresponding return is printed every CEM iteration.
         
 ## Results
 
