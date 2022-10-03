@@ -186,9 +186,9 @@ config = {
         'init_type': 'tiny_normal',
         'reduction': 'weighted_mean',
         'population_size': 64,
-        'elitism_rate': 0.05,
+        'elitism_rate': 0.2,
         'max_number_of_epochs': 1000,
-        'sigma': 0.25,
+        'sigma': 0.5,
         'final_sigma': 0.1,
         'use_exp_sig_decay': False,
         'exponential_reward': False,
@@ -204,7 +204,7 @@ config = {
     'num_lstm_cell_units': 64,                      # RNN latent space size
     'two_head': False,                              # do we want two headed policy? Not for LEAPS
     'mdp_type': 'ProgramEnv1',                      # ProgramEnv1: only allows syntactically valid program execution
-    'env_task': 'topOff',                          # ['program', 'stairClimber', 'placeSetter', 'topOff', 'chainSmoker', 'shelfStocker', 'maze']
+    'env_task': 'fourCorners',                          # ['program', 'stairClimber', 'placeSetter', 'topOff', 'chainSmoker', 'shelfStocker', 'maze']
     'reward_diff': True,                            # If True, differnce between rewards of two consecutive states will be considered at each env step, otherwise current environment reward will be considered
     'prefix': 'default',                            # output directory prefix
     'max_program_len': 45,                          # maximum program length  (repeated)

@@ -183,14 +183,14 @@ config = {
             }
     },
     'CEM':{
-        'init_type': 'tiny_normal',
+        'init_type': 'normal',
         'reduction': 'weighted_mean',
-        'population_size': 64,
-        'elitism_rate': 0.05,
+        'population_size': 32,
+        'elitism_rate': 0.1,
         'max_number_of_epochs': 1000,
-        'sigma': 0.25,
+        'sigma': 0.5,
         'final_sigma': 0.1,
-        'use_exp_sig_decay': False,
+        'use_exp_sig_decay': True,
         'exponential_reward': False,
         'average_score_for_solving': 1.1,
         'detailed_dump': False,
@@ -201,17 +201,17 @@ config = {
     'env_name': 'karel',
     'gamma': 0.99,                                  # discount factor for rewards (default: 0.99)
     'recurrent_policy': True,                       # If True, use RNN in policy network
-    'num_lstm_cell_units': 64,                      # RNN latent space size
+    'num_lstm_cell_units': 256,                      # RNN latent space size
     'two_head': False,                              # do we want two headed policy? Not for LEAPS
     'mdp_type': 'ProgramEnv1',                      # ProgramEnv1: only allows syntactically valid program execution
-    'env_task': 'topOff',                          # ['program', 'stairClimber', 'placeSetter', 'topOff', 'chainSmoker', 'shelfStocker', 'maze']
+    'env_task': 'harvester',                          # ['program', 'stairClimber', 'placeSetter', 'topOff', 'chainSmoker', 'shelfStocker', 'maze']
     'reward_diff': True,                            # If True, differnce between rewards of two consecutive states will be considered at each env step, otherwise current environment reward will be considered
     'prefix': 'default',                            # output directory prefix
     'max_program_len': 45,                          # maximum program length  (repeated)
     'mapping_file': None,                           # mapping_karel2prl.txt if using simplified DSL (Ignore of intention space)
     'debug': False,                                 # use this to debug RL code (provides a lot of debug data in form of dict)
-    'height': 12,                                    # height of karel environment
-    'width': 12,                                     # width of karel environment
+    'height': 8,                                    # height of karel environment
+    'width': 8,                                     # width of karel environment
     #'wall_prob': 0.1,                               # p(wall/one cell in karel gird)
     'wall_prob': 0.25,                               # p(wall/one cell in karel gird)
     'num_demo_per_program': 10,                     # 'number of seen demonstrations' (repeated)
