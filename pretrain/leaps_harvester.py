@@ -4,7 +4,7 @@ config = {
     'save_interval': 1000,                          # Save weights at every ith interval (None, int)
     'log_interval': 10,                             # Logging interval for debugging (None, int)
     'record_file': 'records.pkl',                   # File to save global records dictionary
-    'algorithm': 'supervised',                      # current training algorithm: 'supervised', 'RL', 'supervisedRL', 'debug', 'output_dataset_split'
+    'algorithm': 'CEM',                      # current training algorithm: 'supervised', 'RL', 'supervisedRL', 'debug', 'output_dataset_split'
     'mode': 'train',                                # 'train', 'eval'
 
     'do_supervised': True,                          # do supervised training in supervisedRL algorithm if set True

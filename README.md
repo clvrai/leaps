@@ -35,6 +35,7 @@ pip3 install -r requirements.txt
 ## Usage
 
 ### LEAPS Training
+We already include a pre-trained model for LEAPS in this repo, located in `weights/LEAPS/best_valid_params.ptp`. If you want to train an additional model (e.g., with a different seed), follow the steps in Stage 1: Learning program embeddings. Otherwise, to run RL with LEAPS, go directly to Stage 2 instructions.
 
 ### Stage 1: Learning program embeddings
 
@@ -67,19 +68,14 @@ CUDA_VISIBLE_DEVICES="0" python3 pretrain/trainer.py -c pretrain/cfg.py -d data/
 
 ### Stage 2: CEM search
 ```bash
-python3 pretrain/trainer.py --configfile pretrain/cfg.py --datadir placeholder --num_lstm_cell_units 256 --algorithm CEM --net.saved_params_path weights/LEAPS/best_valid_params.ptp --save_interval 10  --rl.envs.executable.task_file tasks/test2.txt --env_task program --rl.envs.executable.task_definition program --CEM.reduction weighted_mean --CEM.population_size 8 --CEM.sigma 0.1 --CEM.exponential_reward False --reward_type dense_subsequence_match --CEM.average_score_for_solving 1.1 --CEM.use_exp_sig_decay False --CEM.elitism_rate 0.05 --max_program_len 45 --dsl.max_program_len 45  --prefix CEM --seed 12  --CEM.init_type ones
+python3 pretrain/trainer.py --configfile pretrain/leaps_[leaps_maze/leaps_stairclimber/leaps_topoff/leaps_harvester/leaps_fourcorners/leaps_cleanhouse].py --net.saved_params_path weights/LEAPS/best_valid_params.ptp --save_interval 10 --seed [SEED]
 ```
 
-- Selected arguments (see the `pretrain/cfg.py` for more details)
-    - --algorithm: CEM, RandSearch
+- Selected arguments (see the corresponding `pretrain/leaps_*.py` configuration files for more details)
     - Checkpoints: specify the path to a pre-trained checkpoint
-        - --net.saved_params_path: load pre-trained parameters (e.g. `weights/LEAPS/best_valid_params.ptp`).
+        - --net.saved_params_path: load pre-trained parameters (e.g. `weights/LEAPS/best_valid_params.ptp`). If you trained your own stage 1 model, redirect this argument to `best_valid_params.ptp` of that model.
     - Logging:            
         - --save_interval: Save weights at every ith interval (None, int)
-    - Task definition:
-        - --rl.envs.executable.task_file: path to text file containing program string (e.g. tasks/test1.txt)
-        - --env_task: environment task MDP
-        - --rl.envs.executable.task_definition: task is defined by either a program or reward function
     - CEM Hyperparameters:
         - --CEM.population_size: number of programs in one CEM batch
         - --CEM.sigma: CEM sample standard deviation 
@@ -87,6 +83,8 @@ python3 pretrain/trainer.py --configfile pretrain/cfg.py --datadir placeholder -
         - --CEM.elitism_rate: percent of the population considered ‘elites’
         - --CEM.reduction: CEM population reduction ['mean', 'weighted_mean']
         - --CEM.init_type: initial distribution to sample from ['normal':N(0,1), 'tiny_normal':N(0,0.1), 'ones':N(1, 0)]
+
+- Results are saved to `pretrain/output_dir`. Use tensorboard to visualize the results. Note: returns are set to a maximum of 1.1, while it is a max of 1.0 in the paper. This reward difference is due to a syntax bonus, simply subtract 0.1 from the printed/tensorboard results to get the corresponding return out of 1.0.
         
 ## Results
 
@@ -102,16 +100,6 @@ python3 pretrain/trainer.py --configfile pretrain/cfg.py --datadir placeholder -
 
 ### Stage 2: CEM search
 - LEAPS performance on different tasks over 5 seeds
-    - Program behavior reconstruction tasks 
-
-    | Task      | Mean Reward |
-    | :-------: | ----------- |
-    | test1.txt |   1.06      |
-    | test2.txt |   0.87      |
-    | test3.txt |   0.85      |
-    | test4.txt |   0.57      |
-    
-    - Karel environment tasks
 
     | Task         | Mean Reward |
     | :----------: | ----------- |
