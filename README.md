@@ -39,7 +39,7 @@ We already include a pre-trained model for LEAPS in this repo, located in `weigh
 
 ### Stage 1: Learning program embeddings
 
-- Download dataset from [here](https://drive.google.com/drive/folders/1CM4_1zBAXgztPX6n_D6HmavYujZSfdV4?usp=sharing)
+- Download dataset from [here](hf.co/datasets/jesbu1/leaps_karel_dataset)
 
 ```bash
 CUDA_VISIBLE_DEVICES="0" python3 pretrain/trainer.py -c pretrain/cfg.py -d data/karel_dataset/ --verbose --train.batch_size 256 --num_lstm_cell_units 256 --loss.latent_loss_coef 0.1 --rl.loss.latent_rl_loss_coef 0.1 --device cuda:0 --algorithm supervisedRL --optimizer.params.lr 1e-3 --prefix LEAPS
@@ -130,3 +130,4 @@ url={https://openreview.net/forum?id=wP9twkexC3V}
 ## Authors
 
 [Dweep Trivedi](https://dweeptrivedi.github.io/), [Jesse Zhang](https://jesbu1.github.io/), [Shao-Hua Sun](https://shaohua0116.github.io/)
+
